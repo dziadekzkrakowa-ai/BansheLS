@@ -1,0 +1,23 @@
+name: Build BansheLS
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Uloz pliki
+        run: |
+          mkdir -p src/main/java/pl/banshels src/main/resources
+          mv BansheLS.java src/main/java/pl/banshels/
+          mv plugin.yml src/main/resources/
+      - run: mvn -B clean package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BansheLS
+          path: target/BansheLS.jar
