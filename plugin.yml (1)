@@ -1,0 +1,24 @@
+name: BansheLS
+version: '${project.version}'
+main: pl.banshels.BansheLS
+api-version: '1.21'
+description: HeartSteal - system serc z banem po utracie ostatniego serca
+commands:
+  give-serce:
+    description: Daje specjalne serca (1-64)
+    usage: /give-serce <1-64>
+    permission: banshels.giveserce
+  wyplacserce:
+    description: Wyplaca jedno serce jako przedmiot
+    usage: /wyplacserce
+  give-ksiegaodrodzenia:
+    description: Daje Ksiege Odrodzenia
+    usage: /give-ksiegaodrodzenia
+    permission: banshels.giveksiegaodrodzenia
+permissions:
+  banshels.giveksiegaodrodzenia:
+    description: Pozwala uzywac komendy /give-ksiegaodrodzenia
+    default: op
+  banshels.giveserce:
+    description: Pozwala uzywac komendy /give-serce
+    default: op
